@@ -1,6 +1,8 @@
 import "react-datepicker/dist/react-datepicker.css";
 import { useRef, useState } from "react";
 import "./App.css";
+import InputDate from "./Components/InputDate";
+import BlockDays from "./Components/BlockDays";
 
 function App() {
     const [dateParagraf, setDateParagraf] = useState("Виберіть День");
@@ -38,6 +40,10 @@ function App() {
         } else {
             clearInterval(stopTime);
             setDateParagraf("Некоректна дата!");
+            setSeconds(0);
+            setMinutes(0);
+            setHours(0);
+            setDays(0);
             setStopTime(null);
             setTotal(0);
         }
@@ -83,21 +89,11 @@ function App() {
         <div className='wrapper'>
             <section className='section'>
                 <div className='input-date-block'>
-                    <div>
-                        <input type='date' name='date' id='input-date' onChange={getTime} />
-                        {/* <span>Виьбрати дату</span> */}
-                    </div>
+                    <InputDate getTime={getTime} />
                     <p>{dateParagraf}</p>
                 </div>
+                <BlockDays precentDaysRef={precentDaysRef} days={days} />
 
-                <div ref={precentDaysRef} className='time-block' id='days'>
-                    <div>
-                        <ul>
-                            <li>{days < 10 ? `0${days}` : days}</li>
-                            <li>Days</li>
-                        </ul>
-                    </div>
-                </div>
                 <div ref={precentHoursRef} className='time-block' id='hours'>
                     <div>
                         <ul>
