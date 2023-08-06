@@ -2,16 +2,16 @@
 import { useContext } from "react";
 import { StateContext } from "../App";
 
-const BlockDays = () => {
-    const { days } = useContext(StateContext);
+const BlockHours = () => {
+    const { hours } = useContext(StateContext);
     return (
         <div>
             <ul>
-                <li>{days < 10 ? `0${days}` : days}</li>
-                <li>Days</li>
+                <li>{hours < 10 ? `0${hours}` : hours}</li>
+                <li>Hours</li>
             </ul>
         </div>
     );
 };
 
-export default BlockDays;
+export default BlockHours;

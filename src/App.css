@@ -94,6 +94,7 @@
   height: 210px;
   background: #1d1e22;
   box-shadow: 0 0 4px #1d1e22, 0 0 6px #1d1e22;
+  border: 1px solid #f7f8a5;
 }
 
 .time-block div ul li {
